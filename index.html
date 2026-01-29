@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='sv'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Fordonsplanering</title>
+<style>
+body{margin:0;background:#0f172a;color:#e5e7eb;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,'Noto Sans',sans-serif;}
+.header{height:60px;padding:8px 16px;border-bottom:1px solid #1f2937;display:flex;align-items:center;justify-content:space-between}
+.title{font-size:22px;font-weight:700}
+.subtitle{color:#94a3b8;font-size:13px;margin-left:10px}
+.meta{color:#94a3b8;font-size:13px}
+.wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:8px;box-sizing:border-box;height:calc(100vh - 60px - 28px);}
+.col{display:grid;grid-auto-rows:minmax(20px,auto)}
+.row{display:grid;grid-template-columns:80px 130px 1fr 1.2fr;align-items:center;gap:6px;height:22px;border-bottom:1px solid #7f1d1d;}
+.cell{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr{color:#94a3b8;font-size:11px;margin-bottom:2px;border-bottom:1px solid #7f1d1d;}
+.badge{display:inline-block;padding:0 6px;border-radius:999px;background:#111827;border:1px solid #1f2937;color:#38bdf8;font-weight:700}
+.plate{display:inline-block;padding:2px 8px;background:#ffffff;color:#111827;border:2px solid #111827;border-radius:4px;font-weight:800;letter-spacing:1px;}.plate{box-shadow:0 0 0 1px #ffffff inset;}
+.footer{height:28px;padding:6px 12px;color:#94a3b8;font-size:12px;text-align:right;border-top:1px solid #1f2937}
+</style>
+</head>
+<body onload='boot()'>
+<header class='header'><div><span class='title'>Fordonsplanering</span><span class='subtitle'>Vecka 5 · Torsdag · 2026-01-29</span></div><div class='meta'><span id='clock'></span></div></header>
+<main class='wrap'>
+<div class='col'>
+<div class='row hdr'><div class='cell'>InternNr</div><div class='cell'>RegNr</div><div class='cell'>Chaufför</div><div class='cell'>Uppdrag</div></div>
+<div class='row'><div class='cell'><span class='badge'>145</span></div><div class='cell'><span class='plate'>YAW781</span></div><div class='cell'>Annie Dahlström</div><div class='cell'>Trio</div></div>
+<div class='row'><div class='cell'><span class='badge'>505</span></div><div class='cell'><span class='plate'>EBJ969</span></div><div class='cell'></div><div class='cell'>Ska till Fotek</div></div>
+<div class='row'><div class='cell'><span class='badge'>508</span></div><div class='cell'><span class='plate'>YWJ298</span></div><div class='cell'>Mats Petersson</div><div class='cell'>Fryele + Expo</div></div>
+<div class='row'><div class='cell'><span class='badge'>516</span></div><div class='cell'><span class='plate'>TSX38A</span></div><div class='cell'>Henrik Söderkvist</div><div class='cell'>Vurre</div></div>
+<div class='row'><div class='cell'><span class='badge'>518</span></div><div class='cell'><span class='plate'>TMG37M</span></div><div class='cell'>Hanna Strömberg</div><div class='cell'>Blomma VMO</div></div>
+<div class='row'><div class='cell'><span class='badge'>520</span></div><div class='cell'><span class='plate'>FEE55S</span></div><div class='cell'>Fredrik Melkersson</div><div class='cell'>Hylte</div></div>
+<div class='row'><div class='cell'><span class='badge'>525</span></div><div class='cell'><span class='plate'>GLR77U</span></div><div class='cell'>Ilkka Lidh</div><div class='cell'>Express STHLM</div></div>
+<div class='row'><div class='cell'><span class='badge'>531</span></div><div class='cell'><span class='plate'>ONS989</span></div><div class='cell'>Johannes Lang</div><div class='cell'>Kärda</div></div>
+<div class='row'><div class='cell'><span class='badge'>542</span></div><div class='cell'><span class='plate'>AAA73Y</span></div><div class='cell'>Alfred Karlsson</div><div class='cell'>Kommun</div></div>
+<div class='row'><div class='cell'><span class='badge'>552</span></div><div class='cell'><span class='plate'>CBE35A</span></div><div class='cell'></div><div class='cell'>Ska till Fotek</div></div>
+<div class='row'><div class='cell'><span class='badge'>555</span></div><div class='cell'><span class='plate'>TRK512</span></div><div class='cell'>Jaana Karppinen</div><div class='cell'>Horda</div></div>
+<div class='row'><div class='cell'><span class='badge'>621</span></div><div class='cell'><span class='plate'>YBB076</span></div><div class='cell'></div><div class='cell'>Hörle/Startar ej</div></div>
+<div class='row'><div class='cell'><span class='badge'>624</span></div><div class='cell'><span class='plate'>ZMO077</span></div><div class='cell'>Baye Diallo Gueye</div><div class='cell'>Kommun</div></div>
+<div class='row'><div class='cell'><span class='badge'>627</span></div><div class='cell'><span class='plate'>XNK731</span></div><div class='cell'>Barry Gustavsson</div><div class='cell'>Kommun</div></div>
+<div class='row'><div class='cell'><span class='badge'>638</span></div><div class='cell'><span class='plate'>TGL49A</span></div><div class='cell'>Thomas Svensson C</div><div class='cell'>Hestra</div></div>
+<div class='row'><div class='cell'><span class='badge'>685</span></div><div class='cell'><span class='plate'>APW379</span></div><div class='cell'>Arber Sinani</div><div class='cell'>And / Gis</div></div>
+<div class='row'><div class='cell'><span class='badge'>694</span></div><div class='cell'><span class='plate'>DFZ25F</span></div><div class='cell'>Jukka Karppinen</div><div class='cell'>Gnosjö</div></div>
+<div class='row'><div class='cell'><span class='badge'>702</span></div><div class='cell'><span class='plate'>CKJ160</span></div><div class='cell'>Philip Jansson</div><div class='cell'>Värnamo/Ljungby</div></div>
+<div class='row'><div class='cell'><span class='badge'>703</span></div><div class='cell'><span class='plate'>ASN11J</span></div><div class='cell'>Thomas Svensson CE</div><div class='cell'>Rosti heldag</div></div>
+<div class='row'><div class='cell'><span class='badge'>704</span></div><div class='cell'><span class='plate'>SPN956</span></div><div class='cell'>Aleksandar Stavrov</div><div class='cell'>GBG</div></div>
+<div class='row'><div class='cell'><span class='badge'>G705</span></div><div class='cell'><span class='plate'>HXY542</span></div><div class='cell'>Jorma Hiitomaa</div><div class='cell'>Tråd</div></div>
+<div class='row'><div class='cell'><span class='badge'>706</span></div><div class='cell'><span class='plate'>LFN385</span></div><div class='cell'>Adrian-Marius Negru</div><div class='cell'>Flokk</div></div>
+<div class='row'><div class='cell'><span class='badge'>G706</span></div><div class='cell'><span class='plate'>DTT358</span></div><div class='cell'>Bo Pettersson</div><div class='cell'>Weland</div></div>
+</div>
+<div class='col'>
+<div class='row hdr'><div class='cell'>InternNr</div><div class='cell'>RegNr</div><div class='cell'>Chaufför</div><div class='cell'>Uppdrag</div></div>
+<div class='row'><div class='cell'><span class='badge'>707</span></div><div class='cell'><span class='plate'>PCP36F</span></div><div class='cell'>Ron Gaal</div><div class='cell'>ITAB Jönköping</div></div>
+<div class='row'><div class='cell'><span class='badge'>G708</span></div><div class='cell'><span class='plate'>EFP564</span></div><div class='cell'></div><div class='cell'>FLV</div></div>
+<div class='row'><div class='cell'><span class='badge'>709</span></div><div class='cell'><span class='plate'>XPK567</span></div><div class='cell'>Kevin Thelander</div><div class='cell'>Mat + Div</div></div>
+<div class='row'><div class='cell'><span class='badge'>710</span></div><div class='cell'><span class='plate'>YPN41S</span></div><div class='cell'>Henk Janssen</div><div class='cell'>Borås</div></div>
+<div class='row'><div class='cell'><span class='badge'>711</span></div><div class='cell'><span class='plate'>YBG286</span></div><div class='cell'>Thomas Bengtsson</div><div class='cell'>Tranås/Ekenässjön</div></div>
+<div class='row'><div class='cell'><span class='badge'>712</span></div><div class='cell'><span class='plate'>WLJ667</span></div><div class='cell'></div><div class='cell'>In SLV?</div></div>
+<div class='row'><div class='cell'><span class='badge'>713</span></div><div class='cell'><span class='plate'>YJZ367</span></div><div class='cell'>Peter Fäste</div><div class='cell'>Stena R</div></div>
+<div class='row'><div class='cell'><span class='badge'>714</span></div><div class='cell'><span class='plate'>YWB693</span></div><div class='cell'>Ibro Lelic</div><div class='cell'>Esskå</div></div>
+<div class='row'><div class='cell'><span class='badge'>715</span></div><div class='cell'><span class='plate'>BXJ663</span></div><div class='cell'>Morgan Åvitsland</div><div class='cell'>Vibra + GT</div></div>
+<div class='row'><div class='cell'><span class='badge'>717</span></div><div class='cell'><span class='plate'>WTS21D</span></div><div class='cell'>Kjell Moberg</div><div class='cell'>JKPG H</div></div>
+<div class='row'><div class='cell'><span class='badge'>G718</span></div><div class='cell'><span class='plate'>NYZ974</span></div><div class='cell'></div><div class='cell'>SLV</div></div>
+<div class='row'><div class='cell'><span class='badge'>719</span></div><div class='cell'><span class='plate'>YEA896</span></div><div class='cell'>Andreas Bergenholtz</div><div class='cell'>Börja 10:00</div></div>
+<div class='row'><div class='cell'><span class='badge'>G720</span></div><div class='cell'><span class='plate'>RGM751</span></div><div class='cell'>Tindra Ulmestam</div><div class='cell'>HSG H</div></div>
+<div class='row'><div class='cell'><span class='badge'>G721</span></div><div class='cell'><span class='plate'>TED608</span></div><div class='cell'>Richard  Carlsson</div><div class='cell'>Ricana</div></div>
+<div class='row'><div class='cell'><span class='badge'>723</span></div><div class='cell'><span class='plate'>AMX590</span></div><div class='cell'>Jakob Karlsson</div><div class='cell'>ITAB Nässjö</div></div>
+<div class='row'><div class='cell'><span class='badge'>G725</span></div><div class='cell'><span class='plate'>OCE410</span></div><div class='cell'>Jerry Andersson</div><div class='cell'>Sm Stenar - Gno</div></div>
+<div class='row'><div class='cell'><span class='badge'>726</span></div><div class='cell'><span class='plate'>ROF65A</span></div><div class='cell'>Erik Mattsson</div><div class='cell'>Möndal/Falkenberg</div></div>
+<div class='row'><div class='cell'><span class='badge'>G727</span></div><div class='cell'><span class='plate'>TGL793</span></div><div class='cell'>Christer Axelsson</div><div class='cell'>Weland</div></div>
+<div class='row'><div class='cell'><span class='badge'>728</span></div><div class='cell'><span class='plate'>KDF351</span></div><div class='cell'></div><div class='cell'>SLV</div></div>
+<div class='row'><div class='cell'><span class='badge'>730</span></div><div class='cell'><span class='plate'>UYU676</span></div><div class='cell'>Marcus Carlsson</div><div class='cell'>Baby</div></div>
+<div class='row'><div class='cell'><span class='badge'>732</span></div><div class='cell'><span class='plate'>ARR407</span></div><div class='cell'>Oskar Citron</div><div class='cell'>Stena R</div></div>
+<div class='row'><div class='cell'><span class='badge'>733</span></div><div class='cell'><span class='plate'>EOU509</span></div><div class='cell'>Björn Låås</div><div class='cell'>Alvesta/Växjö</div></div>
+<div class='row'><div class='cell'><span class='badge'>734</span></div><div class='cell'><span class='plate'>DTZ571</span></div><div class='cell'></div><div class='cell'>Båstab</div></div>
+</div>
+<div class='col'>
+<div class='row hdr'><div class='cell'>InternNr</div><div class='cell'>RegNr</div><div class='cell'>Chaufför</div><div class='cell'>Uppdrag</div></div>
+<div class='row'><div class='cell'><span class='badge'>735</span></div><div class='cell'><span class='plate'>YEJ31W</span></div><div class='cell'>Anders Mårtensson</div><div class='cell'>And / Gis</div></div>
+<div class='row'><div class='cell'><span class='badge'>736</span></div><div class='cell'><span class='plate'>ADL21K</span></div><div class='cell'>Lukasz Szeroczynski</div><div class='cell'>DS+HW</div></div>
+<div class='row'><div class='cell'><span class='badge'>737</span></div><div class='cell'><span class='plate'>LDK82U</span></div><div class='cell'>Laszlo Balogh</div><div class='cell'>Hillerstorp</div></div>
+<div class='row'><div class='cell'><span class='badge'>G738</span></div><div class='cell'><span class='plate'>NYY256</span></div><div class='cell'>Thomas Hilding</div><div class='cell'>ETAC</div></div>
+<div class='row'><div class='cell'><span class='badge'>739</span></div><div class='cell'><span class='plate'>RHS436</span></div><div class='cell'>Denis Taranis</div><div class='cell'>Gårö</div></div>
+<div class='row'><div class='cell'><span class='badge'>740</span></div><div class='cell'><span class='plate'>SZM26Y</span></div><div class='cell'>Christoffer Nattfalk</div><div class='cell'>Vaggeryd</div></div>
+<div class='row'><div class='cell'><span class='badge'>741</span></div><div class='cell'><span class='plate'>AOS22E</span></div><div class='cell'>Marcel Borst</div><div class='cell'>HSG</div></div>
+<div class='row'><div class='cell'><span class='badge'>743</span></div><div class='cell'><span class='plate'>CLW634</span></div><div class='cell'>Alexandru Dorojan</div><div class='cell'>Bredarydsslingan</div></div>
+<div class='row'><div class='cell'><span class='badge'>744</span></div><div class='cell'><span class='plate'>EUP75Z</span></div><div class='cell'>Jimmy Bengtsson</div><div class='cell'>Hestra Inredningar</div></div>
+<div class='row'><div class='cell'><span class='badge'>745</span></div><div class='cell'><span class='plate'>SSR778</span></div><div class='cell'>Dan Ericsson</div><div class='cell'>MA / Div</div></div>
+<div class='row'><div class='cell'><span class='badge'>746</span></div><div class='cell'><span class='plate'>FZP66U</span></div><div class='cell'>Henrik Tevdal</div><div class='cell'>Pågen 09-10 +Stenkullen</div></div>
+<div class='row'><div class='cell'><span class='badge'>747</span></div><div class='cell'><span class='plate'>YHJ195</span></div><div class='cell'>Björn-Olof Claesson</div><div class='cell'>Stena Stål</div></div>
+<div class='row'><div class='cell'><span class='badge'>748</span></div><div class='cell'><span class='plate'>DKM25G</span></div><div class='cell'>Vlad Pesel</div><div class='cell'>HW Hjo</div></div>
+<div class='row'><div class='cell'><span class='badge'>749</span></div><div class='cell'><span class='plate'>ZNY20T</span></div><div class='cell'>Almir Sahic</div><div class='cell'>Stena R</div></div>
+<div class='row'><div class='cell'><span class='badge'>750</span></div><div class='cell'><span class='plate'>URO109</span></div><div class='cell'>Joakim Antonsson</div><div class='cell'>JKPG</div></div>
+<div class='row'><div class='cell'><span class='badge'>751</span></div><div class='cell'><span class='plate'>PGL18D</span></div><div class='cell'>Håkan Lundahl</div><div class='cell'>Trelleborg</div></div>
+<div class='row'><div class='cell'><span class='badge'>753</span></div><div class='cell'><span class='plate'>MRL01N</span></div><div class='cell'>Jonas Klarqvist</div><div class='cell'>Thule 1</div></div>
+<div class='row'><div class='cell'><span class='badge'>754</span></div><div class='cell'><span class='plate'>TJA87N</span></div><div class='cell'>Alexander Gustafsson</div><div class='cell'>PS</div></div>
+<div class='row'><div class='cell'><span class='badge'>756</span></div><div class='cell'><span class='plate'>OUU60M</span></div><div class='cell'>Ola Nilsson</div><div class='cell'>Thule 2</div></div>
+<div class='row'><div class='cell'><span class='badge'>782</span></div><div class='cell'><span class='plate'>YUW149</span></div><div class='cell'>Ivitsa Aleksovski</div><div class='cell'>GBG H</div></div>
+<div class='row'><div class='cell'><span class='badge'>784</span></div><div class='cell'><span class='plate'>EDW801</span></div><div class='cell'></div><div class='cell'>Till Fotek</div></div>
+<div class='row'><div class='cell'><span class='badge'>793</span></div><div class='cell'><span class='plate'>CNL525</span></div><div class='cell'>Bianca Bendel</div><div class='cell'>Stena R</div></div>
+<div class='row'><div class='cell'><span class='badge'>801</span></div><div class='cell'><span class='plate'>SFP86U</span></div><div class='cell'></div><div class='cell'>Leif Steen kör denna.</div></div>
+</div>
+</main>
+<div class='footer'>Senast uppdaterad: 2026-01-28 12:33 (CET)</div>
+<script>
+function boot(){
+  function tick(){const n=new Date();const s=n.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'});document.getElementById('clock').textContent=s;}
+  tick();setInterval(tick,30000);
+  setTimeout(()=>location.reload(),300000);
+}
+</script>
+</body>
+</html>
